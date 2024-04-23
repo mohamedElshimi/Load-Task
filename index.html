@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Load Serv Task</title>
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+</head>
+<body>
+    <main class="position-relative overflow-hidden min-vh-100">
+        <!-- Step One -->
+        <section class="row">
+            <div class="btn-group col-8 mx-auto my-3" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="appType" id="Individually" autocomplete="off" checked>
+                <label class="btn btn-outline-primary" for="Individually">Individually</label>
+              
+                <input type="radio" class="btn-check" name="appType" id="Company" autocomplete="off">
+                <label class="btn btn-outline-primary" for="Company">Company</label>
+            </div>
+            <form action="" class="row col-11 mx-auto">
+                <div class="col-4 mb-3">
+                    <select class="form-select" aria-label="Default select example" name="makes" id="makes" required>
+                        <option selected>select Car Maker</option>
+                    </select>
+                </div>
+                <div class="col-4 mb-3">
+                    <select class="form-select col-4" name="models" id="models" required>
+                        <option selected>Select Car Model</option>
+                    </select>
+                </div>
+                <div class="col-4 mb-3">
+                    <select class="form-select col-4" name="years" id="years" required>
+                        <option selected>Select Model Year</option>
+                    </select>
+                </div>
+                <img src="" id="carImage" class="col-10 mx-auto" height="400" alt="" style="display: none;">
+                <div class="col-12">
+                    <button class="btn btn-primary d-block ms-auto" id="goToStep2">Next</button>
+                </div>
+            </form>
+        </section>
+        <!-- Step Two -->
+        <section class="row position-absolute top-0 w-100 bg-white z-1 h-100" style="display: none;" id="step2">
+            <form action="" class="row col-11 mx-auto mt-5">
+                <div class="col-md-4 col-12 mb-3">
+                    <input type="text" id="pieceName" placeholder="Enter the name of the piece" class="form-control" required>
+                </div>
+                <div class="col-md-4 col-12 mb-3" id="pieceNumberDiv1">
+                    <input type="number" min="1" id="pieceNum" placeholder="Enter the number of the piece" class="form-control" required>
+                </div>
+                <div class="col-md-4 col-12 mb-3" id="pieceNumberDiv10">
+                    <input type="number" min="10" id="pieceNum" placeholder="Enter the number of the piece" class="form-control" required>
+                </div>
+                <div class="col-md-4 col-12 mb-3">
+                    <input type="text" placeholder="Enter Part serial number of the piece" id="serial" class="form-control">
+                </div>
+                <div class="col-md-6 col-12 mb-3" id="chassisNumber">
+                    <input type="text" id="chassisNumberIn" placeholder="Enter Vehicle chassis number" class="form-control" required>
+                </div>
+                <div class="col-md-6 col-12 mb-3">
+                    <input type="file" class="form-control" >
+                </div>
+                <div class="col-12 mb-3">
+                    <textarea name="" id="" class="form-control" rows="10"></textarea>
+                </div>
+                <div class="d-flex justify-content-between col-12">
+                    <button class="btn btn-secondary" id="backToStep1">Previous</button>
+                    <button class="btn btn-primary" id="goToStep3">Next</button>
+                </div>
+            </form>
+        </section>
+        <!-- Step Three -->
+        <section class="row position-absolute top-0 w-100 bg-white z-2 h-100" style="display: none;" id="step3">
+            <form action="" class="row col-11 mx-auto mt-5">
+                <div class="col-md-6 col-12 mb-3">
+                    <input type="text" id="celintName" placeholder="Enter Your Name" class="form-control" required>
+                </div>
+                <div class="col-md-6 col-12 mb-3">
+                    <input type="email" id="celintEmail" placeholder="Enter Your Email" class="form-control" required>
+                </div>
+                <div class="d-flex">
+                    <div class="col-2 mb-3">
+                        <select id="flagCode" class="form-select">
+                            <option disabled selected>Selet Country Code</option>
+                        </select>
+                    </div>
+                    <div class="col-10 ps-2 mb-3">
+                        <input type="tel" id="celintPhone" placeholder="Enter Phone Number" class="form-control" required>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12 mb-3">
+                    <input type="password" placeholder="Enter Password" class="form-control" id="pass1" required>
+                </div>
+                <div class="col-md-6 col-12 mb-3">
+                    <input type="password" placeholder="Re-enter Password" class="form-control" id="pass2" required>
+                </div>
+                <div class="d-flex justify-content-between col-12">
+                    <button class="btn btn-secondary" id="backToStep2">Previous</button>
+                    <button class="btn btn-primary" id="goToStep4">Next</button>
+                </div>
+                <p class="text-center fw-semibold text-danger" style="display: none;" id="wrongPass">Enter Correct Password</p>
+            </form>
+        </section>
+        <!-- Step Four -->
+        <section class="row position-absolute top-0 w-100 bg-white z-3 h-100" style="display: none;" id="step4">
+            <form action="" class="row col-11 mx-auto mt-5">
+                <div>
+                    <label for="" class="form-label align-self-center col-1">Shipping For :</label>
+                    <div class="btn-group col-3 my-3" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="shippingFor" id="me" autocomplete="off" checked>
+                        <label class="btn btn-outline-primary" for="me">For me</label>
+                    
+                        <input type="radio" class="btn-check" name="shippingFor" id="Friend" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Friend">For Friend</label>
+                    </div>
+                </div>
+                <div class="col-md-4 col-12 mb-3">
+                    <input type="text" id="shipNameAr" placeholder="Enter Your Full Name (In Arabic)" class="form-control" required>
+                </div>
+                <div class="col-md-4 col-12 mb-3">
+                    <input type="text" id="shipNameEn" placeholder="Enter Your Full Name (In English)" class="form-control" required>
+                </div>
+                <div class="col-md-4 col-12 mb-3">
+                    <select id="country" class="form-select">
+                        <option disabled selected>Selet Country</option>
+                    </select>
+                </div>
+                <div class="col-md-4 col-12 mb-3">
+                    <input type="text" id="city" placeholder="Enter Your city" class="form-control" required>
+                </div>
+                <div class="col-md-4 col-12 mb-3">
+                    <input type="text" id="Neighborhood" placeholder="Enter Your Neighborhood" class="form-control" required>
+                </div>
+                <div class="col-md-4 col-12 mb-3">
+                    <input type="text" id="postalCode" placeholder="Enter Your postal code" class="form-control" required>
+                </div>
+                <div class="col-12 mb-3">
+                    <textarea name="" id="addressDes" placeholder="Enter Address Description" class="form-control" rows="10" required></textarea>
+                </div>
+                <div class="d-flex">
+                    <div class="col-2 mb-3">
+                        <select id="flagCode2" class="form-select">
+                            <option disabled selected>Selet Country Code</option>
+                        </select>
+                    </div>
+                    <div class="col-10 ps-2 mb-3">
+                        <input type="tel" id="celintPhone2" placeholder="Enter Phone Number" class="form-control" required>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between col-12">
+                    <button class="btn btn-secondary" id="backToStep3">Previous</button>
+                    <button class="btn btn-primary" id="goToStep5">Next</button>
+                </div>
+            </form>
+        </section>
+        <!-- Step five -->
+        <section class="row overflow-y-scroll position-absolute top-0 w-100 bg-white z-4 h-100 py-3" style="display: none;" id="step5">
+            <div class="row col-11 mx-auto" id="overview">
+                <!-- <h3 class="text-center">Overview</h3>
+                <div>
+                    <h3 class="text-decoration-underline">Car</h3>
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <p class="fs-5">Form Type : </p>
+                            <p class="fs-5">Car Maker : </p>
+                            <p class="fs-5">Model :</p>
+                            <p class="fs-5">Model Year :</p>
+                        </div>
+                        <img src="logo.png" height="150" alt="">
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-decoration-underline">Piece</h3>
+                    <div class="row justify-content-between">
+                        <div class="col-md-6 col-12">
+                            <p class="fs-5">Name Of Piece : </p>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <p class="fs-5">Serial Number Of Piece : </p>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <p class="fs-5">Number Of Piece : </p>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <p class="fs-5">Vehicle Chassis Number : </p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-decoration-underline">Client</h3>
+                    <div class="row justify-content-between">
+                        <div class="col-md-6 col-12">
+                            <p class="fs-5">Client Name : </p>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <p class="fs-5">Client Email : </p>
+                        </div>
+                        <div class="col-12">
+                            <p class="fs-5">Client Phone : </p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-decoration-underline">Shipping</h3>
+                    <div class="row justify-content-between">
+                        <div class="col-md-6 col-12">
+                            <p class="fs-5">Shipping For : </p>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <p class="fs-5">Full Name In Arabic : </p>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <p class="fs-5">Full Name In English : </p>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <p class="fs-5">Address : </p>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <p class="fs-5">Postal Code : </p>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <p class="fs-5">Phone : </p>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <p class="fs-5">Address Description : </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between col-12">
+                    <button class="btn btn-secondary" id="backToStep4">Back</button>
+                    <button class="btn btn-danger" id="delete">Delete</button>
+                    <button class="btn btn-primary" id="send">Send</button>
+                </div> -->
+            </div>
+        </section>
+    </main>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/script.js"></script>
+</body>
+</html>
